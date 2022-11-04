@@ -11,14 +11,14 @@
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
 # theme                  : "minimal-mistakes-jekyll"
-# remote_theme           : "mmistakes/minimal-mistakes"
+remote_theme           : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US"
 title                    : "Universal NER"
 title_separator          : "-"
-subtitle                 : "Annotating Named Entities on the Universal Dependencies dataset # site tagline that appears below site title in masthead
+subtitle                 : "Annotating Named Entities on the Universal Dependencies dataset" # site tagline that appears below site title in masthead
 name                     : "Stephen Mayhew"
 description              : "An amazing website."
 url                      : "https://mayhewsw.github.io/UniversalNER/" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
