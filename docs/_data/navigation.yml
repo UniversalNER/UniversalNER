@@ -1,10 +1,34 @@
 # main links
 main:
-  - title: "About"
-    url: https://mayhewsw.github.io/UniversalNER//about/
+  - title: "Home"
+    url: /
+  - title: "Annotation Guidelines"
+    url: guidelines/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
   #   url: /sitemap/
+
+
+custom-sidebar:
+  - title: "Pages"
+    children:
+      - title: "Home"
+        url: /
+      - title: "Annotation Guidelines"
+        url: /guidelines/
+  - title: "External"
+    children:
+      - title: "Google Group"
+        url: https://groups.google.com/g/ner-for-universaldependencies
+      - title: "Issue Tracker"
+        url: https://github.com/mayhewsw/UniversalNER/issues
+      - title: "Page Source"
+        url: https://github.com/mayhewsw/UniversalNER/tree/main/docs
+      - title: "Annotation Website"
+        url: https://annotate.universalner.org/
+
+
+  
