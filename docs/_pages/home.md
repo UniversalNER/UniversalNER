@@ -1,11 +1,10 @@
 ---
 layout: home
 permalink: /
+title: Universal NER
 sidebar:
   nav: custom-sidebar
 ---
-
-# Universal NER
 
 Multilingual NLP needs high quality Named Entity Recognition datasets 
 in many languages with a shared tagset. This project aims to build that.
