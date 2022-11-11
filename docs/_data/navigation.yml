@@ -2,6 +2,8 @@
 main:
   - title: "Home"
     url: /
+  - title: "Datasets"
+    url: datasets
   - title: "Annotation Guidelines"
     url: guidelines/
   # - title: "Sample Posts"
@@ -17,6 +19,8 @@ custom-sidebar:
     children:
       - title: "Home"
         url: /
+      - title: "Datasets"
+        url: /datasets/  
       - title: "Annotation Guidelines"
         url: /guidelines/
   - title: "External"
