@@ -1,6 +1,6 @@
 ---
 layout: home
-permalink: /datasets
+permalink: /datasets/
 title: UNER Datasets
 sidebar:
   nav: custom-sidebar
