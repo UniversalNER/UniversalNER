@@ -207,9 +207,431 @@
     
       <h1 id="page-title" class="page__title">Annotation Guidelines</h1>
     
-    <p>The Universal NER tagset is: PERSON, LOCATION, and ORGANIZATION.</p>
+    <h4 id="version-1">Version 1</h4>
 
-<p>More info coming soon!</p>
+<h4 id="stephen-mayhew-november-2022-based-on-norne-guidelines"><em>Stephen Mayhew, November 2022, based on <a href="https://github.com/ltgoslo/norne/blob/master/NorNe%20Annotation%20Guidelines.pdf">NorNe guidelines</a></em></h4>
+
+<h2 id="1-what-is-an-annotation">1. What is an annotation?</h2>
+
+<p>An annotation is “a markup of a text span in a specific format that indicates a feature or features of the text within the span.” (<a href="https://www-nlpir.nist.gov/related_projects/muc/index.html">MUC-7</a>)</p>
+
+<p>In addition to a span, all annotations have a type: e.g. person, location, organization.</p>
+
+<h2 id="2-what-should-be-annotated">2. What should be annotated?</h2>
+
+<p>In the Universal Dependencies NER project we annotate named entities. All names of people (fictional and real), organizations, and locations that are found in the texts should be annotated.</p>
+
+<p>The main rules of thumb for annotating something as a name are:</p>
+
+<ul>
+  <li>The word is or contains a proper noun
+    <ul>
+      <li>‘Michael Jordan’ is composed of two consecutive proper noun tokens with a single reference</li>
+      <li>Names may include words which are not proper nouns, e.g. prepositions, as in ‘John of Burgundy’</li>
+      <li>‘Pearl Harbor’ is a name of a location, yet it consists of two common nouns, “pearl” and “harbor”</li>
+    </ul>
+  </li>
+  <li>The word has a unique reference, i.e. it points to a single thing in the world</li>
+  <li>The reference is constant over time
+    <ul>
+      <li>‘Tottenham goalkeeper’ is not a Person name, as its reference will change over time</li>
+      <li>‘Al Yankovic’ is a name, as its reference does not change</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Some examples which are regarded names:</p>
+
+<ul>
+  <li>Names: E.g., ‘Charlie Chaplin’, Chaplin’, ‘Charlie’</li>
+  <li>Initials: E.g. ‘C.C.’ or ‘CC’</li>
+  <li>Spelling mistakes: E.g. ‘Charie Chaplin’</li>
+  <li>All orthographic variations E.g. ‘charlie chapline’, ‘Charlie CHAPLIN’</li>
+  <li>Names of fictional characters: ‘Bilbo Baggins’, ‘Hercule Poirot’, ‘Ryan North’</li>
+</ul>
+
+<p>Some examples which are regarded non-names:</p>
+
+<ul>
+  <li>Pronouns (he, her, they, them)</li>
+  <li>Expressions of time</li>
+  <li>Currencies (Euro, Kroner, Dollar, etc.)</li>
+  <li>Language names and nationalities (English, Spanish, German, Chinese)</li>
+</ul>
+
+<h3 id="21-entity-types">2.1 Entity types</h3>
+
+<p>In this tagset, there are 3 entity types:</p>
+
+<ul>
+  <li>Person (PER)</li>
+  <li>Organization (ORG)</li>
+  <li>Location (LOC)</li>
+</ul>
+
+<p>The same surface form can belong to different types due to different contexts (metonymy). Thus, the same name can refer to both the organization and the place where it is:</p>
+
+<ul>
+  <li>She worked for <span style="text-decoration:underline;">Theater Cafe<sub>(ORG)</sub></span>, but they met at the <span style="text-decoration:underline;">Cafe Love<sub>(LOC)</sub></span>.</li>
+</ul>
+
+<p>“The White House” is a location when something happens there, and an organization when they decide something.</p>
+
+<h4 id="211-entity-type-person">2.1.1 Entity type: Person</h4>
+
+<p>The person name category includes names of real people and fictional characters.</p>
+
+<ul>
+  <li>10 Best Sonnets by <span style="text-decoration:underline;">William Shakespeare<sub>(PER)</sub></span></li>
+  <li>You’re a mean one, Mr. <span style="text-decoration:underline;">Grinch<sub>(PER)</sub></span></li>
+  <li>She reminds me of <span style="text-decoration:underline;">Red Riding Hood<sub>(PER)</sub></span>’s grandma.</li>
+</ul>
+
+<p>Family names should be annotated as Person, even if they refer to several people.</p>
+
+<ul>
+  <li>We’ve been invited to the <span style="text-decoration:underline;">Baums’<sub>(PER)</sub></span> house tomorrow.</li>
+  <li>And, uninvited, the <span style="text-decoration:underline;">Brothers Grimm<sub>(PER)</sub></span></li>
+</ul>
+
+<p>Gods are also annotated as Persons, when capitalized and having a single reference</p>
+
+<ul>
+  <li><span style="text-decoration:underline;">God<sub>(PER)</sub></span> plays a big role in life</li>
+  <li><span style="text-decoration:underline;">Thor’s<sub>(PER)</sub></span> hammer is too heavy for me</li>
+</ul>
+
+<p>When not having a single reference, it is not tagged:</p>
+
+<ul>
+  <li>God or not, <span style="text-decoration:underline;">Zlatan<sub>(PER)</sub></span> is the best.</li>
+  <li>After a long run, I feel like a god.</li>
+</ul>
+
+<p>Do not tag animal names as persons:</p>
+
+<ul>
+  <li>The famous TV-dog Lassie</li>
+  <li>Bo Obama is a pet dog of the <span style="text-decoration:underline;">Obama<sub>(PER)</sub></span> family</li>
+</ul>
+
+<p>Usernames should be annotated as Persons if they are used as names:</p>
+
+<ul>
+  <li><span style="text-decoration:underline;">lolgrapeuk<sub>(PER)</sub></span> told me that <span style="text-decoration:underline;">thunderbiscuit<sub>(PER)</sub></span> is joining later</li>
+</ul>
+
+<h4 id="212-entity-type-organization">2.1.2 Entity type: Organization</h4>
+
+<p>Include any named collection of people, such as firms, institutions, organizations, pop groups, sports teams, unions, political parties etc.</p>
+
+<ul>
+  <li><span style="text-decoration:underline;">CBS<sub>(ORG)</sub></span> bought <span style="text-decoration:underline;">BBC<sub>(ORG)</sub></span></li>
+  <li><span style="text-decoration:underline;">Pixar<sub>(ORG)</sub></span> created Monsters Inc.</li>
+  <li>The <span style="text-decoration:underline;">Department of Defense<sub>(ORG)</sub></span> is a top group in the <span style="text-decoration:underline;">US<sub>(LOC)</sub></span> government.</li>
+  <li>Having left the <span style="text-decoration:underline;">Republican Party<sub>(ORG)</sub></span>, <span style="text-decoration:underline;">John Smith<sub>(PER) </sub></span>will head up <span style="text-decoration:underline;">United Airlines<sub>(ORG)</sub></span>.</li>
+</ul>
+
+<p>Organization also includes names of places when they act as administrative units or sports teams:</p>
+
+<ul>
+  <li><span style="text-decoration:underline;">Baltimore<sub>(ORG)</sub></span> lost to <span style="text-decoration:underline;">Indianapolis<sub>(ORG)</sub></span> last weekend</li>
+  <li><span style="text-decoration:underline;">Boston<sub>(ORG)</sub></span> announced yesterday that mask restrictions would be lifted</li>
+</ul>
+
+<p>Documents from the “reviews” corpus in UNER can be tricky. The establishments they mention are very often a location, but are treated like an organization. Use your judgment in these cases.</p>
+
+<ul>
+  <li>I’m never going back to <span style="text-decoration:underline;">Dusty’s<sub>(LOC)</sub></span>! The food was disgusting!</li>
+  <li>Even though I’ve never tried <span style="text-decoration:underline;">Dusty’s<sub>(ORG)</sub></span>, I’ve heard they have disgusting food.</li>
+</ul>
+
+<p>Corporate designators like Co. and Ltd. are to be included as part of the name. The term “&amp; co” in “Obama &amp; co” should not be annotated because it is a designator for unnamed persons, and not an organization or a company:</p>
+
+<ul>
+  <li><span style="text-decoration:underline;">Obama<sub>(PER)</sub></span> &amp; co cleaned the table</li>
+</ul>
+
+<p>In contrast to e.g.:</p>
+
+<ul>
+  <li>Law firm <span style="text-decoration:underline;">Johnson &amp; Co<sub>(ORG)</sub></span> represented <span style="text-decoration:underline;">Hansen<sub>(PER)</sub></span></li>
+</ul>
+
+<p>Only tag brands if referring to the organization itself, not as a brand label.</p>
+
+<ul>
+  <li><span style="text-decoration:underline;">Nike<sub>(ORG)</sub></span> has confirmed the new shoe sizes.</li>
+  <li>I think I got injured because I wore <span style="text-decoration:underline;">Nike<sub>(OTH)</sub></span>.</li>
+</ul>
+
+<h4 id="213-entity-type-location">2.1.3 Entity type: Location</h4>
+
+<p>Includes geographical places, buildings and facilities. Examples are airports, churches, restaurants, hotels, tourist attractions, hospitals, shops, street addresses, roads, oceans, fjords, mountains, parks and also fictional locations.</p>
+
+<p>Examples:</p>
+
+<ul>
+  <li><span style="text-decoration:underline;">Germany<sub>(LOC)</sub></span> is very close to <span style="text-decoration:underline;">Sweden<sub>(LOC)</sub></span></li>
+  <li>I have reservations tomorrow morning at <span style="text-decoration:underline;">The Breakfast Club &amp; Grill<sub>(LOC)</sub></span></li>
+  <li><span style="text-decoration:underline;">Church of the Ascension<sub>(LOC)</sub></span> will have Easter services at 7am and 10am</li>
+  <li>The <span style="text-decoration:underline;">Gulf of Mexico<sub>(LOC) </sub></span>is a beautiful blue in the morning.</li>
+  <li>I cannot recommend the restaurant on <span style="text-decoration:underline;">Carson Street<sub>(LOC)</sub></span>.</li>
+  <li>It takes only 15 minutes, if you go on <span style="text-decoration:underline;">I-70<sub>(LOC)</sub></span></li>
+</ul>
+
+<p>Do not include locational descriptors unless they are part of the name:</p>
+
+<ul>
+  <li>She lives in northern <span style="text-decoration:underline;">California<sub>(LOC)</sub></span>.</li>
+  <li>My two favorite places are <span style="text-decoration:underline;">West Virginia<sub>(LOC)</sub></span> and <span style="text-decoration:underline;">South Sudan<sub>(LOC)</sub></span>.</li>
+</ul>
+
+<p>Postal addresses should be annotated as a whole span, as they constitute a unique reference. Examples:</p>
+
+<ul>
+  <li><span style="text-decoration:underline;">5900 Penn Avenue, Pittsburgh<sub>(LOC)</sub></span></li>
+  <li><span style="text-decoration:underline;">Target Headquarters, 1000 Nicollet Mall TPS-3165 Minneapolis MN 55403, United States<sub>(LOC)</sub></span>.</li>
+  <li><span style="text-decoration:underline;">Apple Inc. One Apple Park Way. Cupertino, CA, 95014. United States<sub>(LOC)</sub></span>.</li>
+</ul>
+
+<h4 id="214-entity-type-other">2.1.4 Entity type: OTHER</h4>
+
+<p>In the course of annotation, there may be cases in which a span feels like an entity, but doesn’t fit into one of the above categories. For these cases, use the OTHER tag. These annotations will most likely not be included in the final set, but can be used to check disagreements between annotators, and possibly stored as a separate annotation layer.</p>
+
+<p>Tag nationalities and languages as OTHER.</p>
+
+<ul>
+  <li>The <span style="text-decoration:underline;">Argentinian<sub>(OTH)</sub></span> diplomat spoke <span style="text-decoration:underline;">Greek<sub>(OTH)</sub></span></li>
+</ul>
+
+<p>Tag brands as OTHER:</p>
+
+<ul>
+  <li>I refuse to buy an <span style="text-decoration:underline;">Apple<sub>(OTH)</sub></span> Watch.</li>
+  <li>My dad was adamant that <span style="text-decoration:underline;">Saab<sub>(OTH)</sub></span> was better than <span style="text-decoration:underline;">Porsche<sub>(OTH)</sub></span></li>
+</ul>
+
+<h4 id="215-relationship-to-to-universal-dependencies-propn">2.1.5 Relationship to to Universal Dependencies PROPN</h4>
+
+<p>We expect that most occurrences of named entities will coincide with the <a href="https://universaldependencies.org/u/pos/PROPN.html">PROPN</a> tag in Universal Dependencies. However, slight differences remain: UD will at times give parts of speech to individual constituents, and may include a broader category of terms.</p>
+
+<h3 id="22-ambiguity">2.2 Ambiguity</h3>
+
+<p>Ambiguity is a frequent source of doubt when annotating. Solve ambiguity in general as follows:</p>
+
+<ul>
+  <li>Choose the entity type based on the local context</li>
+  <li>We assume that every entity has a base, or literal, meaning</li>
+  <li>When there is ambiguity, either because of lack of context or genuine ambiguity, always choose the literal meaning of the word(s)</li>
+  <li>If the context doesn’t help, and the surface form is ambiguous, choose the most common usage</li>
+  <li>If you had to link this entity to a Wikipedia page, what type would the page be?</li>
+</ul>
+
+<p>Examples:</p>
+
+<ul>
+  <li>Baltimore is top of the table.
+    <ul>
+      <li>Choose ORG by the context, sports</li>
+    </ul>
+  </li>
+  <li>I can’t wait to see Indianapolis
+    <ul>
+      <li>Could be either ORG or LOC, choose LOC as the literal meaning</li>
+    </ul>
+  </li>
+  <li>Lawrence is my favorite.
+    <ul>
+      <li>Could be either PER or LOC, choose PER as the more common usage</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="23-examples">2.3 Examples</h3>
+
+<h4 id="231-nested-names">2.3.1 Nested names</h4>
+
+<p>Always annotate the whole name, never nested parts.</p>
+
+<p>Annotate like this:</p>
+
+<ul>
+  <li><span style="text-decoration:underline;">University of Washington St. Louis<sub>(ORG)</sub></span></li>
+</ul>
+
+<p>And not like this:</p>
+
+<ul>
+  <li>*<span style="text-decoration:underline;">University of Washington<sub>(LOC)</sub></span> <span style="text-decoration:underline;">St. Louis<sub>(LOC)</sub></span></li>
+</ul>
+
+<h4 id="232-possessiongenitive">2.3.2 Possession/genitive</h4>
+
+<p>Annotate the genitive marker as part of the name</p>
+
+<ul>
+  <li><span style="text-decoration:underline;">Charlie Chaplin’s<sub>(PER)</sub></span> office.</li>
+</ul>
+
+<p>Note that the possessor and possessed named entity substring should be tagged separately:</p>
+
+<ul>
+  <li><span style="text-decoration:underline;">Morten’s<sub>(PER)</sub></span> <span style="text-decoration:underline;">Sweden<sub>(LOC)</sub></span>.</li>
+</ul>
+
+<h4 id="233-titles">2.3.3 Titles</h4>
+
+<p>We never annotate titles as a name or part of a name:</p>
+
+<ul>
+  <li>Your Majesty</li>
+  <li>President <span style="text-decoration:underline;">Lincoln<sub>(PER)</sub></span></li>
+  <li>Honorable King <span style="text-decoration:underline;">Harald<sub>(PER)</sub></span></li>
+  <li>Mullah <span style="text-decoration:underline;">Omar<sub>(PER)</sub></span></li>
+</ul>
+
+<p>When the same words refer to the person/occupation, they are not considered names:</p>
+
+<ul>
+  <li>The governor drove into the ditch.</li>
+</ul>
+
+<h4 id="234-names-connected-by-conjunctions">2.3.4 Names connected by conjunctions</h4>
+
+<p>Annotate names connected by conjunctions as multiple distinct entities:</p>
+
+<ul>
+  <li><span style="text-decoration:underline;">Eli<sub>(PER)</sub></span> and <span style="text-decoration:underline;">Carl I. Hagen<sub>(PER)</sub></span></li>
+</ul>
+
+<h4 id="235-names-that-include-numbers">2.3.5 Names that include numbers</h4>
+
+<p>Include numbers when they are part of the entity name:</p>
+
+<ul>
+  <li><span style="text-decoration:underline;">10 Downing St<sub>(LOC)</sub></span></li>
+  <li><span style="text-decoration:underline;">21 Pilots<sub>(ORG)</sub></span></li>
+</ul>
+
+<h4 id="236-quotations-around-a-name">2.3.6 Quotations around a name</h4>
+
+<p>Exclude quotations and other punctuation characters as part of the name:</p>
+
+<ul>
+  <li>“Becoming <span style="text-decoration:underline;">John Malkovich<sub>(PER)</sub></span>” starring <span style="text-decoration:underline;">John Malkovich<sub>(PER)</sub></span>.</li>
+  <li><span style="text-decoration:underline;">Oslo<sub>(LOC)</sub></span>-<span style="text-decoration:underline;">Bergen<sub>(LOC)</sub></span> is quite far…</li>
+</ul>
+
+<h4 id="237-words-and-phrases-derived-from-names">2.3.7 Words and Phrases derived from names</h4>
+
+<p>Phrases that contain names should not be annotated if they are not in use as a proper noun:</p>
+
+<ul>
+  <li>The Bergen wave is a term for popular musical styles from the <span style="text-decoration:underline;">Bergen<sub>(LOC)</sub></span> area</li>
+  <li>The Pittsburgh left causes 10 million traffic accidents a year in <span style="text-decoration:underline;">Pittsburgh<sub>(LOC)</sub></span>.</li>
+  <li>I have a Matisse next door, but I think it was painted by <span style="text-decoration:underline;">Picasso<sub>(PER)</sub></span>.</li>
+</ul>
+
+<h4 id="238-proper-names-conjoined-to-other-tokens">2.3.8 Proper names conjoined to other tokens</h4>
+
+<p>If a name includes a hyphen, include the non-name tokens in the annotation:</p>
+
+<ul>
+  <li><span style="text-decoration:underline;">New York-based<sub>(LOC)</sub></span> <span style="text-decoration:underline;">ACLU<sub>(ORG)</sub></span></li>
+</ul>
+
+<h4 id="239-combinations-of-names">2.3.9 Combinations of Names</h4>
+
+<p>Names that are combined using various conventions, should be given type by the combination of the names:</p>
+
+<ul>
+  <li>He was born in <span style="text-decoration:underline;">Champaign-Urbana<sub>(LOC)</sub></span></li>
+</ul>
+
+<p>In some cases, two different types of named entity will be combined. Tag first for context, and if the context is ambiguous, or there is no context, tag with the first entity.</p>
+
+<ul>
+  <li><span style="text-decoration:underline;">Steve Jones@EPC<sub>(PER)</sub></span> told me the prices would drop</li>
+  <li>The firm/person I would contact is <span style="text-decoration:underline;">EPC/Steve<sub>(ORG)</sub></span> Jones.</li>
+</ul>
+
+<h4 id="2310-emails-and-usernames">2.3.10 Emails and Usernames</h4>
+
+<p>Email addresses and Usernames should not be tagged unless they are used in the place of a name. Examples:</p>
+
+<ul>
+  <li><span style="text-decoration:underline;">bob@motels.com<sub>(PER)</sub></span> said I should contact him</li>
+  <li>I need to email <span style="text-decoration:underline;">help@homedepot.com<sub>(ORG)</sub></span> to get a refund</li>
+  <li>You can contact us at <a href="mailto:hello@dollargeneral.com">hello@dollargeneral.com</a></li>
+  <li>anybody know why <span style="text-decoration:underline;">@slumpdog<sub>(PER)</sub></span> never comments any more?</li>
+  <li>thanks for the tip! ~SlamDunk84</li>
+</ul>
+
+<h3 id="23-questions">2.3 Questions</h3>
+
+<p>In cases where the locative meaning applies for an organizational area, there is sometimes doubt as to whether the appropriate annotation should be LOC, or ORG.</p>
+
+<ul>
+  <li>This year, the scheme will be introduced in the EEA</li>
+  <li>Police attorney XX at Helgeland police district says one person has been arrested and charged</li>
+  <li>So far this year, there have been three arrests in the Hordaland police district, and two in the Hedmark and Rogaland police districts</li>
+</ul>
+
+<p>There is often doubt related to whether a sentence-initial word should be annotated, given that many words can both be used as a proper name and a generic term.</p>
+
+<ul>
+  <li>The Governor of Svalbard has the highest official authority in the area</li>
+  <li>The church has its own bodies that can take over the tasks that the King (government) currently handles</li>
+  <li>The government has not yet commented on the incident</li>
+  <li>The police say that there may be a connection between the misdeeds Sometimes the name is related to the context</li>
+  <li>Hacker News sent me a question last week</li>
+</ul>
+
+<p>Sometimes nicknames can contain a proper name. The question in these cases is whether the whole construction should be annotated, or just the proper name.</p>
+
+<ul>
+  <li>The question is who wins the 11 electoral votes in <span style="text-decoration:underline;">Arizona<sub>(LOC)</sub></span>, the Grand Canyon state</li>
+</ul>
+
+<h2 id="3-previous-work-basis-of-the-guidelines">3. Previous work, basis of the guidelines</h2>
+
+<p>These guidelines are heavily based on <a href="https://github.com/ltgoslo/norne/blob/master/NorNe%20Annotation%20Guidelines.pdf">NorNe</a> annotation guidelines, with the biggest changes being the removal of Event, Product, and GPE named entities.</p>
+
+<p>The guidelines are also partially based on:</p>
+
+<ul>
+  <li>ACE (Automatic Content Extraction) English Annotation Guidelines for Entities Version 6.6 2008.06.13
+    <ul>
+      <li><a href="https://www.ldc.upenn.edu/sites/www.ldc.upenn.edu/files/english-entities-guidelines-v6.6.pdf">https://www.ldc.upenn.edu/sites/www.ldc.upenn.edu/files/english-entities-guidelines-v6.6.pdf</a></li>
+    </ul>
+  </li>
+  <li>MUC-6 Guidelines
+    <ul>
+      <li><a href="https://cs.nyu.edu/~grishman/muc6.html">https://cs.nyu.edu/~grishman/muc6.html</a></li>
+      <li><a href="https://cs.nyu.edu/~grishman/NEtask20.book_1.html">https://cs.nyu.edu/~grishman/NEtask20.book_1.html</a></li>
+    </ul>
+  </li>
+  <li>MUC-7 Guidelines
+    <ul>
+      <li><a href="https://www-nlpir.nist.gov/related_projects/muc/index.html">https://www-nlpir.nist.gov/related_projects/muc/index.html</a></li>
+    </ul>
+  </li>
+  <li>CONLL NER shared task:
+    <ul>
+      <li><a href="http://www.cnts.ua.ac.be/conll2003/ner/annotation.txt">http://www.cnts.ua.ac.be/conll2003/ner/annotation.txt</a></li>
+    </ul>
+  </li>
+  <li>Ontonotes 5
+    <ul>
+      <li><a href="https://catalog.ldc.upenn.edu/docs/LDC2013T19/OntoNotes-Release-5.0.pdf">https://catalog.ldc.upenn.edu/docs/LDC2013T19/OntoNotes-Release-5.0.pdf</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="4-acknowledgements">4. Acknowledgements</h2>
+
+<p>Thanks to Dan Zeman, Amir Zeldes, Constantine Lignos for comments and thoughtful feedback.</p>
 
 
   </div>
