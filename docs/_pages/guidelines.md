@@ -8,7 +8,7 @@ title: Annotation Guidelines
 ---
 
 
-#### Version 1
+#### Version 1.1
 
 #### _Stephen Mayhew, November 2022, based on [NorNe guidelines](https://github.com/ltgoslo/norne/blob/master/NorNe%20Annotation%20Guidelines.pdf)_
 
@@ -166,30 +166,26 @@ Only tag brands if referring to the organization itself, not as a brand label.
 
 #### 2.1.3 Entity type: Location 
 
-Includes geographical places, buildings and facilities. Examples are airports, churches, restaurants, hotels, tourist attractions, hospitals, shops, street addresses, roads, oceans, fjords, mountains, parks and also fictional locations. 
+Includes geographical places, buildings and facilities. Examples are airports, churches, restaurants, hotels, tourist attractions, hospitals, shops, street addresses, roads, oceans, fjords, mountains, planets, parks and also fictional locations. 
 
 Examples:
-
-
-
 * <span style="text-decoration:underline;">Germany<sub>(LOC)</sub></span> is very close to <span style="text-decoration:underline;">Sweden<sub>(LOC)</sub></span>
 * I have reservations tomorrow morning at <span style="text-decoration:underline;">The Breakfast Club & Grill<sub>(LOC)</sub></span>
 * <span style="text-decoration:underline;">Church of the Ascension<sub>(LOC)</sub></span> will have Easter services at 7am and 10am
 * The <span style="text-decoration:underline;">Gulf of Mexico<sub>(LOC) </sub></span>is a beautiful blue in the morning.
 * I cannot recommend the restaurant on <span style="text-decoration:underline;">Carson Street<sub>(LOC)</sub></span>.
 * It takes only 15 minutes, if you go on <span style="text-decoration:underline;">I-70<sub>(LOC)</sub></span>
+* If I ever traveled from <span style="text-decoration:underline;">Earth<sub>(LOC)</sub></span> to <span style="text-decoration:underline;">Mars<sub>(LOC)</sub></span>, I would want to be asleep.
+
+
+When two locations are consecutive, we annotate separately:
+* i have like 40 friends who live in <span style="text-decoration:underline;">philly<sub>(LOC)</sub></span> <span style="text-decoration:underline;">pennsylvania<sub>(LOC)</sub></span>.
 
 Do not include locational descriptors unless they are part of the name:
-
-
-
 * She lives in northern <span style="text-decoration:underline;">California<sub>(LOC)</sub></span>.
 * My two favorite places are <span style="text-decoration:underline;">West Virginia<sub>(LOC)</sub></span> and <span style="text-decoration:underline;">South Sudan<sub>(LOC)</sub></span>.
 
-Postal addresses should be annotated as a whole span, as they constitute a unique reference. Examples: 
-
-
-
+Postal addresses are an exception to the separate annotation rule: they should be annotated as a whole span, as they constitute a unique reference. Examples: 
 * <span style="text-decoration:underline;">5900 Penn Avenue, Pittsburgh<sub>(LOC)</sub></span> 
 * <span style="text-decoration:underline;">Target Headquarters, 1000 Nicollet Mall TPS-3165 Minneapolis MN 55403, United States<sub>(LOC)</sub></span>.
 * <span style="text-decoration:underline;">Apple Inc. One Apple Park Way. Cupertino, CA, 95014. United States<sub>(LOC)</sub></span>.
@@ -424,3 +420,11 @@ The guidelines are also partially based on:
 ## 4. Acknowledgements
 
 Thanks to Dan Zeman, Amir Zeldes, Constantine Lignos for comments and thoughtful feedback.
+
+## 5. Changelog
+
+### v1
+Initial
+
+### v1.1
+- Added wording about consecutive locations, and tagging of planets
