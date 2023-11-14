@@ -12,6 +12,13 @@ in many languages with a shared tagset.
 UNER is modeled after the [Universal Dependencies](https://universaldependencies.org/) project, in that
 it is intended to be a large community annotation effort with language-universal guidelines. Further, we use the _same text corpora_ as Universal Dependencies. 
 
+## Universal NER v1
+
+We are excited to release Universal NER v1. Here are the relevant links:
+
+- Harvard Dataverse for official release: [https://doi.org/10.7910/DVN/GQ8HDL]
+- Github repos for latest updates: [https://github.com/UniversalNER]
+- The paper: _Coming soon_
 
 ## Contributing
 
