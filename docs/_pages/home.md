@@ -16,9 +16,10 @@ it is intended to be a large community annotation effort with language-universal
 
 We are excited to release Universal NER v1. Here are the relevant links:
 
-- Harvard Dataverse for official release: [https://doi.org/10.7910/DVN/GQ8HDL]
-- Github repos for latest updates: [https://github.com/UniversalNER]
+- Harvard Dataverse for official release: [https://doi.org/10.7910/DVN/GQ8HDL]()
+- Github repos for bleeding edge datasets: [https://github.com/UniversalNER]()
 - The paper: _Coming soon_
+- Huggingface dataset: _Coming soon_
 
 ## Contributing
 
