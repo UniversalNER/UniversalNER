@@ -8,7 +8,7 @@ title: Annotation Guidelines
 ---
 
 
-#### Version 1.1
+#### Version 1
 
 #### _Stephen Mayhew, November 2022, based on [NorNe guidelines](https://github.com/ltgoslo/norne/blob/master/NorNe%20Annotation%20Guidelines.pdf)_
 
@@ -422,9 +422,10 @@ The guidelines are also partially based on:
 Thanks to Dan Zeman, Amir Zeldes, Constantine Lignos for comments and thoughtful feedback.
 
 ## 5. Changelog
+Note: these guidelines originally started at v1, and incremented to v1.1, but as part of UNER v1 release, we have retroactively decremented the versions, so that the guideline version matches the release version.
 
-### v1
+### v0
 Initial
 
-### v1.1
+### v1 (Release Version)
 - Added wording about consecutive locations, and tagging of planets
