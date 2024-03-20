@@ -18,7 +18,7 @@ We are excited to release Universal NER v1. Here are the relevant links:
 
 - Harvard Dataverse for official release: [https://doi.org/10.7910/DVN/GQ8HDL]()
 - Github repos for bleeding edge datasets: [https://github.com/UniversalNER]()
-- <a href="/assets/Universal_NER.pdf">The paper</a>
+- [The paper](https://arxiv.org/abs/2311.09122), accepted to [NAACL 2024](https://2024.naacl.org/).
 - Huggingface dataset: _Coming soon_
 
 ## Contributing
