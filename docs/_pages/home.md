@@ -23,6 +23,6 @@ We are excited to release Universal NER v1. Here are the relevant links:
 
 ## Contributing
 
-Are you interested in annotating or organizing? _We need your help!_ Please fill out [this interest form](https://forms.gle/FWnXwgnKCbgdA6JM6).
+Are you interested in annotating or organizing? _We need your help!_ Please join [our discord!](https://discord.gg/2UyyzwEA)
 
-If you want to receive news about Universal NER, you can subscribe to the [UNER mailing list](https://groups.google.com/g/ner-for-universaldependencies). If you want to discuss individual annotation questions, use the [Github issue tracker](https://github.com/mayhewsw/UniversalNER/issues).
+<!-- If you want to receive news about Universal NER, you can subscribe to the [UNER mailing list](https://groups.google.com/g/ner-for-universaldependencies). If you want to discuss individual annotation questions, use the [Github issue tracker](https://github.com/mayhewsw/UniversalNER/issues). -->
