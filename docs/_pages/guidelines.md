@@ -82,7 +82,7 @@ The person name category includes names of real people and fictional characters.
 
 * 10 Best Sonnets by <span style="text-decoration:underline;">William Shakespeare<sub>(PER)</sub></span>
 * You’re a mean one, Mr. <span style="text-decoration:underline;">Grinch<sub>(PER)</sub></span>
-* She reminds me of <span style="text-decoration:underline;">Red Riding Hood<sub>(PER)</sub></span>’s grandma.
+* She reminds me of <span style="text-decoration:underline;">Red Riding Hood's<sub>(PER)</sub></span> grandma.
 
 Family names should be annotated as Person, even if they refer to several people.
 
