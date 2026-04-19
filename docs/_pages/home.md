@@ -12,7 +12,7 @@ in many languages with a shared tagset.
 UNER is modeled after the [Universal Dependencies](https://universaldependencies.org/) project, in that
 it is intended to be a large community annotation effort with language-universal guidelines. Further, we use the _same text corpora_ as Universal Dependencies. 
 
-You can see our datasets on [_Huggingface ](https://huggingface.co/universalner)
+You can see our datasets on [Huggingface](https://huggingface.co/universalner)
 
 ## Universal NER v2
 We are excited to release Universal NER v2. Relevant links:
